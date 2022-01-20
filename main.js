@@ -17,8 +17,8 @@ const rl = readline.createInterface({
         // * 1 is the smallest
 
 let stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
+  a: [4, 3, 2],
+  b: [1],
   c: []
 };
 
@@ -29,15 +29,18 @@ const printStacks = () => {
   console.log("c: " + stacks.c);
 }
 
-// Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
+// Before you move, should you check if the move is actually allowed? Should 3 be able to be stacked on 2
+const isLegal = (startStack, endStack) => {
+  let start = stacks[startStack]; // if startStack = a, start = [4, 3, 2]
+  let end = stacks[endStack];
+  // if last index in start is greater than last index in end, return false
 
+  // else, return true
 }
 
-// Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
-  // Your code here
+// Next, what do you think this function should do?
+const movePiece = (startStack, endStack) => {
+  let piece = startStack[]
 
 }
 
@@ -50,7 +53,7 @@ const checkForWin = () => {
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-
+  isLegal(startStack, endStack)
 }
 
 const getPrompt = () => {
