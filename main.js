@@ -34,26 +34,41 @@ const isLegal = (startStack, endStack) => {
   let start = stacks[startStack]; // if startStack = a, start = [4, 3, 2]
   let end = stacks[endStack];
   // if last index in start is greater than last index in end, return false
-
-  // else, return true
+  if (start[start.length] < end[end.length] || end[end.length] === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Next, what do you think this function should do?
 const movePiece = (startStack, endStack) => {
-  let piece = startStack[]
-
+  let start = stacks[startStack]; // if startStack = a, start = [4, 3, 2]
+  let end = stacks[endStack];
+  let piece = start[start.length - 1];
+  if (piece < end[end.length - 1] || end === 0) {
+    end.push(piece.pop());
+  } else {
+    console.log("ILLEGAL MOVE");
+  }
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
-  // Your code here
-
+  
+  if (stacks.c.length === 4) {
+    console.log("YOU WIN!!!");
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-  isLegal(startStack, endStack)
+  movePiece(startStack, endStack);
+  checkForWin();
 }
 
 const getPrompt = () => {
