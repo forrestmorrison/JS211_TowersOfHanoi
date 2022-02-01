@@ -40,3 +40,39 @@ const dropStone = (rowID, stone) => {
 
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
 
+const movePiece = (startStack, endStack) => {
+
+  stacks[endStack].push(stacks[startStack].pop());
+
+}
+
+const checkForWin = () => {
+  
+  if (stacks["b"].length === 4) {
+    console.log("YOU WIN!!!");
+    return true;
+  } else {
+    return false;
+  }
+}
+
+const towersOfHanoi = (startStack, endStack) => {
+
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin(startStack, endStack);
+  } else {
+    towersOfHanoi();
+  }
+
+}
+
+const getPrompt = () => {
+  printStacks();
+  rl.question('start stack: ', (startStack) => {
+    rl.question('end stack: ', (endStack) => {
+      towersOfHanoi(startStack, endStack);
+      getPrompt();
+    });
+  });
+}
